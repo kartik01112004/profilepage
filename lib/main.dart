@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:profilepage/profile_page.dart';
+import 'package:profilepage/profilePage.dart';
+import 'package:profilepage/settingsPage.dart';
 
 void main() {
   runApp(const MyApp());

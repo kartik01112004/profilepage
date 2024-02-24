@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FollowButton extends StatelessWidget {
+class FollowButton extends StatefulWidget {
   final Function()? function;
   final Color backgroundColor;
   final Color borderColor;
@@ -16,26 +16,33 @@ class FollowButton extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<FollowButton> createState() => _FollowButtonState();
+}
+
+class _FollowButtonState extends State<FollowButton> {
+  @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Container(
       padding: const EdgeInsets.only(top: 2),
       child: TextButton(
-        onPressed: function,
+        onPressed: widget.function,
         child: Container(
           decoration: BoxDecoration(
-            color: backgroundColor,
+            color: widget.backgroundColor,
             border: Border.all(
-              color: borderColor,
+              color: widget.borderColor,
             ),
             borderRadius: BorderRadius.circular(5),
           ),
           alignment: Alignment.center,
-          width: 250,
-          height: 27,
+          width: width * 0.4,
+          height: height * 0.05,
           child: Text(
-            text,
+            widget.text,
             style: TextStyle(
-              color: textColor,
+              color: widget.textColor,
               fontWeight: FontWeight.bold,
             ),
           ),
